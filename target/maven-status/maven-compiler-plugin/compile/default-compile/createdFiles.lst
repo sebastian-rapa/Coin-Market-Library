@@ -1,0 +1,10 @@
+com/coinmarketadvisor/library/serialization/CryptoCurrenciesDeserializer.class
+com/coinmarketadvisor/library/serialization/CryptoCurrencySerializer.class
+com/coinmarketadvisor/library/exception/runtime/MissingVolumeCalculateMethodException.class
+com/coinmarketadvisor/library/util/ArrayNodeCollector.class
+com/coinmarketadvisor/library/model/CryptoCurrency.class
+com/coinmarketadvisor/library/serialization/CryptoCurrencyDeserializer.class
+com/coinmarketadvisor/library/serialization/CryptoCurrenciesSerializer.class
+com/coinmarketadvisor/library/model/CryptoCurrency$1.class
+com/coinmarketadvisor/library/model/MarketVolume.class
+com/coinmarketadvisor/library/model/CryptoCurrencyConstants.class
