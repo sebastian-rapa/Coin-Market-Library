@@ -1,9 +1,0 @@
-/home/sebastian/Projects/Start_Up/Coinmarket Advisor/CoinMarketLibrary/src/main/java/com/coinmarketadvisor/library/serialization/CryptoCurrencyDeserializer.java
-/home/sebastian/Projects/Start_Up/Coinmarket Advisor/CoinMarketLibrary/src/main/java/com/coinmarketadvisor/library/serialization/CryptoCurrenciesSerializer.java
-/home/sebastian/Projects/Start_Up/Coinmarket Advisor/CoinMarketLibrary/src/main/java/com/coinmarketadvisor/library/model/MarketVolume.java
-/home/sebastian/Projects/Start_Up/Coinmarket Advisor/CoinMarketLibrary/src/main/java/com/coinmarketadvisor/library/model/CryptoCurrency.java
-/home/sebastian/Projects/Start_Up/Coinmarket Advisor/CoinMarketLibrary/src/main/java/com/coinmarketadvisor/library/util/ArrayNodeCollector.java
-/home/sebastian/Projects/Start_Up/Coinmarket Advisor/CoinMarketLibrary/src/main/java/com/coinmarketadvisor/library/model/CryptoCurrencyConstants.java
-/home/sebastian/Projects/Start_Up/Coinmarket Advisor/CoinMarketLibrary/src/main/java/com/coinmarketadvisor/library/exception/runtime/MissingVolumeCalculateMethodException.java
-/home/sebastian/Projects/Start_Up/Coinmarket Advisor/CoinMarketLibrary/src/main/java/com/coinmarketadvisor/library/serialization/CryptoCurrencySerializer.java
-/home/sebastian/Projects/Start_Up/Coinmarket Advisor/CoinMarketLibrary/src/main/java/com/coinmarketadvisor/library/serialization/CryptoCurrenciesDeserializer.java
