@@ -11,7 +11,7 @@ public class CryptoCurrencyTest {
     public void givenATimeStampGraterTimestampThanTheCurrentTimestamp_whenTryingToCreateACryptoCurrencyObjectWithIt_itShouldThrowAnIllegalStateException() {
         long testTimestamp = new Date().getTime();
         // Adding 1000 ms (while the JVM switches between threads it may take more than 1 ms) to the testTimestamp in order to make the constructor throw an error
-        new CryptoCurrency("btc", "bitcoin", BigDecimal.valueOf(16_123.89), testTimestamp + 1000);
+        new CryptoCurrency("btc", "bitcoin", BigDecimal.valueOf(16_123.89), testTimestamp + 1500);
     }
 
 

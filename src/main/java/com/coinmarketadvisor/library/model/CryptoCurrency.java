@@ -66,7 +66,7 @@ public class CryptoCurrency {
 
         // Make sure the currentTimestamp is grater than the timestamp referenced for the currency price
         final long currentTimeStamp = new Date().getTime();
-        if (currentTimeStamp < timeStampOfPrice) {
+        if (currentTimeStamp + 1000 < timeStampOfPrice) {
             throw new IllegalStateException("You can not create a currency with a timestamp further in the future compared with the creation time of the currency");
         }
 

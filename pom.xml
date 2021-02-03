@@ -6,7 +6,7 @@
 
     <groupId>com.coinmarketadvisor</groupId>
     <artifactId>coinmarketadvisor-library</artifactId>
-    <version>1.0</version>
+    <version>1.0.2</version>
 
     <packaging>jar</packaging>
     <name>Coin Market Library</name>
@@ -86,9 +86,12 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- ===================================================== -->
+
+        <!--==================================-->
+        <!-- Deploying to Sontype OSSRH BEGIN -->
+        <!--==================================-->
+
         <!-- Necessary Dependency for the gpg maven plugin to work -->
-        <!-- ===================================================== -->
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
@@ -96,19 +99,60 @@
             <type>maven-plugin</type>
         </dependency>
 
-        <!-- ========================================================== -->
         <!-- Necessary Dependency for the java doc maven plugin to work -->
-        <!-- ========================================================== -->
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-javadoc-plugin</artifactId>
             <version>3.2.0</version>
             <type>maven-plugin</type>
         </dependency>
+
+        <!--================================-->
+        <!-- Deploying to Sontype OSSRH END -->
+        <!--================================-->
+
+        <!--============================================-->
+        <!-- Deploying to our PRIVATE Repositories BEGIN-->
+        <!--============================================-->
+
+        <!--<dependency>
+            <groupId>org.apache.maven.wagon</groupId>
+            <artifactId>wagon-ftp</artifactId>
+            <version>3.4.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>maven-bundle-plugin</artifactId>
+            <version>5.1.1</version>
+            <type>maven-plugin</type>
+        </dependency>-->
+
+        <!--<dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-deploy-plugin</artifactId>
+            <version>3.0.0-M1</version>
+            <type>maven-plugin</type>
+        </dependency>-->
+
+        <!--<dependency>
+            <groupId>org.apache.maven.wagon</groupId>
+            <artifactId>wagon-webdav-jackrabbit</artifactId>
+            <version>3.4.2</version>
+        </dependency>-->
+        <!--==========================================-->
+        <!-- Deploying to our PRIVATE Repositories END-->
+        <!--==========================================-->
+
     </dependencies>
 
     <!-- Declaring where to deploy the library repository and snapshots -->
     <distributionManagement>
+
+        <!--==================================-->
+        <!-- Deploying to Sontype OSSRH BEGIN -->
+        <!--==================================-->
+
         <snapshotRepository>
             <id>ossrh</id>
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
@@ -117,9 +161,41 @@
             <id>ossrh</id>
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
+
+        <!--================================-->
+        <!-- Deploying to Sontype OSSRH END -->
+        <!--================================-->
+
+
+        <!--============================================-->
+        <!-- Deploying to our PRIVATE Repositories BEGIN-->
+        <!--============================================-->
+        <!--<snapshotRepository>
+            <id>archiva.snapshots</id>
+            <url>http://localhost:8080/archiva/repository/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>archiva.internal</id>
+            <url>http://localhost:8080/archiva/repository/internal/</url>
+        </repository>-->
+        <!--==========================================-->
+        <!-- Deploying to our PRIVATE Repositories END-->
+        <!--==========================================-->
     </distributionManagement>
 
     <build>
+
+        <!--<pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>3.0.0-M1</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>-->
+
+
         <plugins>
             <!-- Maven compiler -->
             <plugin>
@@ -131,6 +207,31 @@
                     <target>11</target>
                 </configuration>
             </plugin>
+
+            <!--============================================-->
+            <!-- Deploying to our PRIVATE Repositories BEGIN-->
+            <!--============================================-->
+
+            <!--<plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <version>5.1.1</version>
+                <extensions>true</extensions>
+            </plugin>-->
+
+            <!--<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>3.0.0-M1</version>
+            </plugin>-->
+
+            <!--==========================================-->
+            <!-- Deploying to our PRIVATE Repositories END-->
+            <!--==========================================-->
+
+            <!--==================================-->
+            <!-- Deploying to Sontype OSSRH BEGIN -->
+            <!--==================================-->
 
             <!-- Sona type plugin that helps with deploying -->
             <plugin>
@@ -164,7 +265,11 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.9.1</version>
+                <version>3.2.0</version>
+                <!--TODO: Figure out if this is needed for the warnings to disappear-->
+<!--                <configuration>-->
+<!--                    <source>8</source>-->
+<!--                </configuration>-->
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -191,7 +296,30 @@
                 </executions>
             </plugin>
 
+            <!--================================-->
+            <!-- Deploying to Sontype OSSRH END -->
+            <!--================================-->
+
         </plugins>
+
+        <!--============================================-->
+        <!-- Deploying to our PRIVATE Repositories BEGIN-->
+        <!--============================================-->
+        <!--<extensions>
+            &lt;!&ndash;<extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-webdav-jackrabbit</artifactId>
+                <version>2.2</version>
+            </extension>&ndash;&gt;
+           &lt;!&ndash; <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ftp</artifactId>
+                <version>2.10</version>
+            </extension>&ndash;&gt;
+        </extensions>-->
+        <!--==========================================-->
+        <!-- Deploying to our PRIVATE Repositories END-->
+        <!--==========================================-->
     </build>
 
 
