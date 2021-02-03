@@ -64,12 +64,6 @@ public class CryptoCurrency {
             throw new IllegalStateException("You can not create a currency with a negative price.");
         }
 
-        // Make sure the currentTimestamp is grater than the timestamp referenced for the currency price
-        final long currentTimeStamp = new Date().getTime();
-        if (currentTimeStamp + 1000 < timeStampOfPrice) {
-            throw new IllegalStateException("You can not create a currency with a timestamp further in the future compared with the creation time of the currency");
-        }
-
         this.symbol = symbol;
         this.name = name;
         this.price = price;
