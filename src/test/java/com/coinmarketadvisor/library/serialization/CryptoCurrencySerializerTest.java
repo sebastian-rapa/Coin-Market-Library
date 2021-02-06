@@ -13,7 +13,14 @@ public class CryptoCurrencySerializerTest {
 
     @Test
     public void givenAnInitialCryptoCurrency_whenSerializingItAndDeserializingIt_theDeserializedCurrencyShouldBeTheSameWithTheInitialCurrency() {
-        CryptoCurrency initialCryptoCurrency = new CryptoCurrency("BTC", "bitcoin", BigDecimal.valueOf(16_1234.89), new Date().getTime());
+        CryptoCurrency initialCryptoCurrency =
+                new CryptoCurrency(
+                        "BTC",
+                        "bitcoin",
+                        BigDecimal.valueOf(16_1234.89),
+                        BigDecimal.valueOf(16_1234.89),
+                        BigDecimal.valueOf(16_1234.89),
+                        new Date().getTime());
         byte[] serializedCurrency = serializeCurrency(initialCryptoCurrency);
 
         CryptoCurrency deserializedCurrency = deserializeCurrency(serializedCurrency);
@@ -27,7 +34,14 @@ public class CryptoCurrencySerializerTest {
 
     @Test
     public void givenAnInitialCryptoCurrency_whenSerializingItTwice_theByteArraysShouldBeTheEqual() {
-        CryptoCurrency initialCryptoCurrency = new CryptoCurrency("BTC", "bitcoin", BigDecimal.valueOf(16_1234.89), new Date().getTime());
+        CryptoCurrency initialCryptoCurrency =
+                new CryptoCurrency(
+                        "BTC",
+                        "bitcoin",
+                        BigDecimal.valueOf(16_1234.89),
+                        BigDecimal.valueOf(16_1234.89),
+                        BigDecimal.valueOf(16_1234.89),
+                        new Date().getTime());
 
         byte[] firstSerializedCurrencyByteArray = serializeCurrency(initialCryptoCurrency);
         byte[] secondSerializedCurrencyByteArray = serializeCurrency(initialCryptoCurrency);
