@@ -170,6 +170,18 @@ public class CryptoCurrencyTest {
         );
 
         assertEquals(
+                "Price per 24H should be 34.400",
+                BigDecimal.valueOf(34_400.0),
+                BigDecimal.valueOf(objectNodeCurrency.get("price24Hours").asDouble())
+        );
+
+        assertEquals(
+                "Change percentage per 7 days should be 39.600",
+                BigDecimal.valueOf(39_600.0),
+                BigDecimal.valueOf(objectNodeCurrency.get("price7Days").asDouble())
+        );
+
+        assertEquals(
                 "Change percentage per 24H should be 0.2916",
                 BigDecimal.valueOf(0.2916),
                 BigDecimal.valueOf(objectNodeCurrency.get("change24Hours").asDouble())

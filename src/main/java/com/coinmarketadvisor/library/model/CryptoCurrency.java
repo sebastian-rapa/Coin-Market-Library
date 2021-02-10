@@ -149,6 +149,8 @@ public class CryptoCurrency {
         objectNode.put("price", price);
         objectNode.put("change24Hours", change24Hours);
         objectNode.put("change7Days", change7Days);
+        objectNode.put("price24Hours", price24Hours);
+        objectNode.put("price7Days", price7Days);
         objectNode.put("timeStampOfPrice", timeStampOfPrice);
         objectNode.put("marketCapPer24H", calculateMarketVolumePer24H());
         objectNode.put("marketCapPer7Days", calculateMarketVolumePer7Days());
