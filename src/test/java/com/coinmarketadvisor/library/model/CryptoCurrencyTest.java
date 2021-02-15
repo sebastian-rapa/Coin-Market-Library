@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.UUID;
 
 import static org.junit.Assert.assertEquals;
 
@@ -13,6 +14,7 @@ public class CryptoCurrencyTest {
     @Test(expected = IllegalStateException.class)
     public void givenANegativePrice_whenTryingToCreateACryptoCurrencyObjectWithIt_itShouldThrowAnIllegalStateException() {
         new CryptoCurrency(
+                UUID.randomUUID().toString(),
                 "btc",
                 "bitcoin",
                 BigDecimal.valueOf(-1),
@@ -25,6 +27,7 @@ public class CryptoCurrencyTest {
     @Test(expected = IllegalStateException.class)
     public void givenANegative24HPrice_whenTryingToCreateACryptoCurrencyObjectWithIt_itShouldThrowAnIllegalStateException() {
         new CryptoCurrency(
+                UUID.randomUUID().toString(),
                 "btc",
                 "bitcoin",
                 BigDecimal.ZERO,
@@ -37,6 +40,7 @@ public class CryptoCurrencyTest {
     @Test(expected = IllegalStateException.class)
     public void givenANegative7DaysPrice_whenTryingToCreateACryptoCurrencyObjectWithIt_itShouldThrowAnIllegalStateException() {
         new CryptoCurrency(
+                UUID.randomUUID().toString(),
                 "btc",
                 "bitcoin",
                 BigDecimal.ZERO,
@@ -50,6 +54,7 @@ public class CryptoCurrencyTest {
     @Test(expected = IllegalStateException.class)
     public void givenAnEmptyCurrencyName_whenTryingToCreateACryptoCurrencyObjectWithIt_itShouldThrowAnIllegalStateException() {
         new CryptoCurrency(
+                UUID.randomUUID().toString(),
                 "btc",
                 "",
                 BigDecimal.valueOf(16_123.89),
@@ -63,6 +68,7 @@ public class CryptoCurrencyTest {
     @Test(expected = IllegalStateException.class)
     public void givenAnEmptyCurrencySymbol_whenTryingToCreateACryptoCurrencyObjectWithIt_itShouldThrowAnIllegalStateException() {
         new CryptoCurrency(
+                UUID.randomUUID().toString(),
                 "",
                 "bitcoin",
                 BigDecimal.ZERO,
@@ -75,6 +81,7 @@ public class CryptoCurrencyTest {
     @Test
     public void givenACryptoCurrency_whenCalculating24HChange_expectRightOutput() {
         CryptoCurrency cryptoCurrency = new CryptoCurrency(
+                UUID.randomUUID().toString(),
                 "BTC",
                 "bitcoin",
                 BigDecimal.valueOf(34_500),
@@ -92,6 +99,7 @@ public class CryptoCurrencyTest {
     @Test
     public void givenACryptoCurrency_whenCalculating7DaysChange_expectRightOutput() {
         CryptoCurrency cryptoCurrency = new CryptoCurrency(
+                UUID.randomUUID().toString(),
                 "BTC",
                 "bitcoin",
                 BigDecimal.valueOf(34_500),
@@ -109,6 +117,7 @@ public class CryptoCurrencyTest {
     @Test
     public void givenACryptoCurrency_whenCalculating24HChangeWithPriceDropping_expectNegativeChangePercentage() {
         CryptoCurrency cryptoCurrency = new CryptoCurrency(
+                UUID.randomUUID().toString(),
                 "BTC",
                 "bitcoin",
                 BigDecimal.valueOf(34_500),
@@ -126,6 +135,7 @@ public class CryptoCurrencyTest {
     @Test
     public void givenACryptoCurrency_whenCalculating7DaysChangeWithPriceDropping_expectNegativeChangePercentage() {
         CryptoCurrency cryptoCurrency = new CryptoCurrency(
+                UUID.randomUUID().toString(),
                 "BTC",
                 "bitcoin",
                 BigDecimal.valueOf(34_500),
@@ -143,6 +153,7 @@ public class CryptoCurrencyTest {
     @Test
     public void givenACryptoCurrency_whenConvertingItToObjectNode_expectEachFieldsToBeConverted() {
         ObjectNode objectNodeCurrency = new CryptoCurrency(
+                UUID.randomUUID().toString(),
                 "BTC",
                 "bitcoin",
                 BigDecimal.valueOf(34_500.3212),

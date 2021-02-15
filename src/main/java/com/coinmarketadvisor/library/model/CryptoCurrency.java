@@ -18,6 +18,10 @@ public class CryptoCurrency {
      * */
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
     /**
+     *  This is the crypto currency unique id
+     * */
+    private String cryptoCurrencyId;
+    /**
      *  This is the symbol of the crypto currency
      *  For example: BTC, ETH, USDT
      * */
@@ -61,7 +65,8 @@ public class CryptoCurrency {
     /**
      * This constructor will be used when Producing to the Kafka server
      * */
-    public CryptoCurrency(final String symbol,
+    public CryptoCurrency(final String cryptoCurrencyId,
+                          final String symbol,
                           final String name,
                           final BigDecimal currentPrice,
                           final BigDecimal price24Hours,
@@ -92,6 +97,7 @@ public class CryptoCurrency {
             throw new IllegalStateException("You can not create a currency with a negative price.");
         }
 
+        this.cryptoCurrencyId = cryptoCurrencyId;
         this.symbol = symbol;
         this.name = name;
         this.price = currentPrice;
@@ -108,6 +114,10 @@ public class CryptoCurrency {
 
     public String getName() {
         return name;
+    }
+
+    public String getCryptoCurrencyId() {
+        return cryptoCurrencyId;
     }
 
     public BigDecimal getPrice() {
@@ -144,6 +154,7 @@ public class CryptoCurrency {
      * */
     public ObjectNode toObjectNode(){
         final ObjectNode objectNode = OBJECT_MAPPER.createObjectNode();
+        objectNode.put("cryptoCurrencyId", cryptoCurrencyId);
         objectNode.put("symbol", symbol);
         objectNode.put("name", name);
         objectNode.put("price", price);

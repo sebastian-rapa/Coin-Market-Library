@@ -5,6 +5,7 @@ import com.coinmarketadvisor.library.model.CryptoCurrency;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.UUID;
 
 import static org.junit.Assert.*;
 
@@ -14,6 +15,7 @@ public class CryptoCurrencyDeserializerTest {
     public void givenAnInitialCryptoCurrency_whenSerializingItAndDeserializingIt_theDeserializedCurrencyShouldBeTheSameWithTheInitialCurrency() {
         CryptoCurrency initialCryptoCurrency =
                 new CryptoCurrency(
+                        UUID.randomUUID().toString(),
                         "BTC",
                         "bitcoin",
                         BigDecimal.valueOf(16_1234.89),
@@ -35,6 +37,7 @@ public class CryptoCurrencyDeserializerTest {
     public void givenAnInitialCryptoCurrency_whenSerializingItAndDeserializingTwice_theDeserializedCurrenciesShouldBeTheEqual() {
         CryptoCurrency initialCryptoCurrency =
                 new CryptoCurrency(
+                        UUID.randomUUID().toString(),
                         "BTC",
                         "bitcoin",
                         BigDecimal.valueOf(16_1234.89),
